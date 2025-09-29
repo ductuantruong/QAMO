@@ -8,7 +8,7 @@ This repository contains the code and pretrained models for the following paper:
 ## Pretrained Model
 The pretrained model XLSR can be found at [link](https://dl.fbaipublicfiles.com/fairseq/wav2vec/xlsr2_300m.pt).
 
-We have uploaded pretrained models of our experiments. You can download pretrained models from [OneDrive](https://entuedu-my.sharepoint.com/:f:/g/personal/truongdu001_e_ntu_edu_sg/EhIOVqPCD69CpJ9qFsm7qhcB3UFN2hGkif4Mfr8OzkwURQ?e=asrfwL). 
+We have uploaded pretrained models of our experiments. You can download pretrained models from [HuggingFace](https://huggingface.co/tuantd/QAMO/tree/main). 
 
 ## Setting up environment
 Python version: 3.7.16
