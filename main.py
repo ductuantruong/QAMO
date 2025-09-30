@@ -59,8 +59,6 @@ def produce_evaluation_file(dataset, model, device, save_path):
         ens_score_list.extend(batch_ens_out.tolist())
 
     for f, ens_cm in zip(fname_list, ens_score_list):
-        if 'In-the-Wild' in save_path:
-            f = f + '.wav'
         ens_text_list.append('{} {}'.format(f, ens_cm))
     del fname_list
     del ens_score_list
@@ -222,8 +220,8 @@ if __name__ == '__main__':
                     help='Maximum SNR value for coloured additive noise.[defaul=40]')
     
 
-    if not os.path.exists('models'):
-        os.mkdir('models')
+    if not os.path.exists('exps'):
+        os.mkdir('exps')
     args = parser.parse_args()
     print(args)
     args.track='LA'
@@ -246,7 +244,7 @@ if __name__ == '__main__':
     model_tag = '{}_w_QAMOx{}lr09Rm02Fm'.format(args.model, args.oc_lr)
     if args.comment:
         model_tag = model_tag + '_{}'.format(args.comment)
-    model_save_path = os.path.join('models', model_tag)
+    model_save_path = os.path.join('exps', model_tag)
     
     print('Model tag: '+ model_tag)
 
@@ -260,12 +258,11 @@ if __name__ == '__main__':
     device = 'cuda' if torch.cuda.is_available() else 'cpu'                  
     print('Device: {}'.format(device))
     if args.model == 'conformer_tcm':
-        from nets.conformer import Model
+        from nets.conformer_tcm import Model
         model = Model(args,device)
     elif args.model == 'nes2net':
         from nets.nes2net import Model
         model = Model(args,device)
-
     else:
         print('Undefined model architechture!')
         exit()

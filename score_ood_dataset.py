@@ -27,8 +27,8 @@ def eval_to_score_file(score_file, cm_key_file):
 
     cm_scores = submission_scores.merge(cm_data, left_on=0, right_on='file', how='inner')  # check here for progress vs eval set
     print(cm_scores)
-    bona_cm = cm_scores[cm_scores['label'] == 'bona-fide'][-1].values
-    spoof_cm = cm_scores[cm_scores['label'] == 'spoof'][-1].values
+    bona_cm = cm_scores[cm_scores['label'] == 'bona-fide'][1].values
+    spoof_cm = cm_scores[cm_scores['label'] == 'spoof'][1].values
     eer_cm = em.compute_eer(bona_cm, spoof_cm)[0]
     out_data = "eer: %.2f\n" % (100*eer_cm)
     print(out_data)

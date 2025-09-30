@@ -225,5 +225,5 @@ class Model(nn.Module):
         x_ssl_feat = self.ssl_model.extract_feat(x.squeeze(-1))
         x_ssl_feat = x_ssl_feat.permute(0,2,1)
         out = self.Nested_Res2Net_TDNN(x_ssl_feat)
-        loss, score = self.QAMO(out, y, q_score)
+        loss, score = self.ocsoftmax(out, y, q_score)
         return out, loss, score
