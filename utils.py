@@ -13,16 +13,17 @@ def pad(x, max_len):
     padded_x = np.tile(x, (1, num_repeats))[:, :max_len][0]
     return padded_x	
 
-def read_metadata(meta_path, is_eval=False):
+def read_metadata(dir_meta, is_eval=False):
     d_meta = {}
     d_score = {}
     file_list=[]
-    with open(meta_path, 'r') as f:
+    with open(dir_meta, 'r') as f:
          l_meta = f.readlines()
     
     if (is_eval):
         for line in l_meta:
-            key = line.strip()
+            list_field = line.strip().split()
+            key = list_field[0] if len(list_field) == 1 else list_field[1]
             file_list.append(key)
         return file_list
     else:
