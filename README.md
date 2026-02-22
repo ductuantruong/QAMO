@@ -1,14 +1,9 @@
 # QAMO: Quality-aware Multi-centroid One-class Learning For Speech Deepfake Detection
 
-This repository contains the code and pretrained models for the following paper:
-
-* **Title** : QAMO: Quality-aware Multi-centroid One-class Learning For Speech Deepfake Detection
-* **Autor** : Duc-Tuan Truong, Tianchi Liu, Ruijie Tao, Junjie Li, Kong Aik Lee, Eng Siong Chng
-
 ## Pretrained Model
 The pretrained model XLSR can be found at [link](https://dl.fbaipublicfiles.com/fairseq/wav2vec/xlsr2_300m.pt).
 
-We have uploaded pretrained models of our experiments. You can download pretrained models from [HuggingFace](https://huggingface.co/tuantd/QAMO/tree/main). 
+We will upload pretrained models of our experiments after decision result. 
 
 ## Setting up environment
 Python version: 3.7.16
@@ -62,19 +57,6 @@ python inference.py --ckpt_path=path_to/model.pth --threshold=-3.73 --wav_path=p
 ```
 The threshold can be obtained when calculating EER on one of the evaluation sets. In this example, the threshold is from DF set evaluation. -->
 
-## Citation
-If you find our repository valuable for your work, please consider giving a star to this repo and citing our paper:
-```
-@misc{truong2025qamoqualityawaremulticentroidoneclass,
-      title={QAMO: Quality-aware Multi-centroid One-class Learning For Speech Deepfake Detection}, 
-      author={Duc-Tuan Truong and Tianchi Liu and Ruijie Tao and Junjie Li and Kong Aik Lee and Eng Siong Chng},
-      year={2025},
-      eprint={2509.20679},
-      archivePrefix={arXiv},
-      primaryClass={cs.SD},
-      url={https://arxiv.org/abs/2509.20679}, 
-}
-```
 
 ### Acknowledge
 We use some parts of the following codebases:
