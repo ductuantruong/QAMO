@@ -52,7 +52,8 @@ def produce_evaluation_file(dataset, model, device, save_path):
             utt_id = list(map(lambda x: x.split('/')[-1], utt_id))
         batch_x = batch_x.to(device)
         batch_emb, _, batch_score = model(batch_x)
-        batch_ens_out = batch_score.mean(dim=1)
+        weights = F.softmax(batch_score, dim=1)
+        batch_ens_out = (weights * batch_score).sum(dim=1)
         batch_ens_out = batch_ens_out.data.cpu().numpy().ravel()
         # add outputs
         fname_list.extend(utt_id)
